@@ -3,13 +3,25 @@ const server = express()
 const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
+const userRouter = require('./src/routes/users/user')
 
 dotenv.config()
+const {
+    badRequestHandler,
+    notFoundHandler,
+    genericErrorHandler,
+} = require("./src/middleware/errorHandler");
 
 
+server.use(cors())
+server.use(express.json())
 
 
+server.use(badRequestHandler);
+server.use(notFoundHandler);
+server.use(genericErrorHandler);
 
+server.use("/users", userRouter)
 
 
 const port = process.env.PORT || 5001
