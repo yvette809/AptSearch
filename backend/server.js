@@ -4,6 +4,7 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const userRouter = require('./src/routes/users/user')
+const houseRouter = require('./src/routes/houses/house')
 
 dotenv.config()
 const {
@@ -22,6 +23,7 @@ server.use(notFoundHandler);
 server.use(genericErrorHandler);
 
 server.use("/users", userRouter)
+server.use("/houses", houseRouter)
 
 
 const port = process.env.PORT || 5001
