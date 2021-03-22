@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const userRouter = require('./src/routes/users/user')
 const houseRouter = require('./src/routes/houses/house')
+const postRouter = require('./src/routes/posts/post')
 
 dotenv.config()
 const {
@@ -24,6 +25,7 @@ server.use(genericErrorHandler);
 
 server.use("/users", userRouter)
 server.use("/houses", houseRouter)
+server.use("/posts", postRouter)
 
 
 const port = process.env.PORT || 5001
