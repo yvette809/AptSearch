@@ -38,7 +38,7 @@ userRouter.post("/login", async (req, res, next) => {
 });
 
 // get user profile(logged in user)
-userRouter.get("/:id", auth, async (req, res, next) => {
+userRouter.get("/", auth, async (req, res, next) => {
   try {
     const user = await UserModel.findById(req.user.id).select("-password");
     if (user) {
@@ -93,7 +93,7 @@ userRouter.post("/register", async (req, res, next) => {
 
 //get all users
 
-userRouter.get("/",  async (req, res, next) => {
+userRouter.get("/", async (req, res, next) => {
   const users = await UserModel.find(req.query);
   console.log("USERS", users);
   if (users) {
