@@ -5,14 +5,19 @@ import { connect } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
-import { login } from "../actions/auth";
+import { login,loadUser} from "../actions/auth";
 
-const Login = ({ login, userLogin }) => {
+const Login = ({ login, userLogin,loadUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { loading, error, userInfo } = userLogin;
 
   const history = useHistory();
+
+  useEffect(()=>{
+    loadUser()
+
+  },[])
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -68,4 +73,4 @@ const mapStateToProps = (state) => ({
   userLogin: state.userLogin,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login,loadUser })(Login);

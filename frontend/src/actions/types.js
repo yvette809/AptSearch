@@ -1,21 +1,23 @@
-export const SET_ALERT = "SET_ALERT";
-export const REMOVE_ALERT = "REMOVE_ALERT";
+
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
+
 export const USER_DETAILS_SUCCESS = "USER_DETAILS_SUCCESS";
 export const USER_DETAILS_FAIL = "USER_DETAILS_FAIL";
+
 export const USER_LOGOUT = "USER_LOGOUT";
 export const GET_USERS = "GET_USERS";
 export const GETUSERS_FAIL = "GETUSERS_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
-export const LOGOUT = "LOGOUT";
-export const AUTH_ERROR = "AUTH_ERROR";
-export const GET_PROFILE = "GET_PROFILE";
-export const GET_PROFILES = "GET_PROFILES";
-export const UPDATE_PROFILE = "UPDATE_PROFILE";
-export const DELETE_PROFILE = "DELETE_PROFILE";
-export const PROFILE_ERROR = "PROFILE_ERROR";
+
+export const  GET_HOUSE= " GET_HOUSE";
+export const  GET_HOUSES = " GET_HOUSES";
+export const UPDATE_HOUSE = "UPDATE_HOUSE";
+export const DELETE_HOUSE = "DELETE_HOUSE";
+export const  ADD_HOUSE = "ADD_HOUSE";
+export const HOUSE_ERROR = "HOUSE_ERROR";
+
 export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const ACCOUNT_DELETED = "ACCOUNT_DELETED";
 export const GET_POSTS = "GET_POSTS";

@@ -13,6 +13,9 @@ const Register = ({ register, userRegister, userLogin, userDetails }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [bio, setBio] = useState("");
+  const [role, setRole] = useState("");
+
   const [message, setMessage] = useState(null);
 
   const { loading, error, user } = userRegister;
@@ -24,7 +27,7 @@ const Register = ({ register, userRegister, userLogin, userDetails }) => {
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
     } else {
-      register({ name, email, password });
+      register({ name, email, password, bio });
     }
 
     if (userLogin) {
@@ -79,6 +82,28 @@ const Register = ({ register, userRegister, userLogin, userDetails }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+
+        <Form.Label htmlFor="role"> Are You a Landlord?</Form.Label>
+        <Form.Control
+          type="checkbox"
+          value={role}
+          onChange={(e) => setRole(e.currentTarget.checked)}
+          checked={role}
+        ></Form.Control>
+
+        {role && (
+          <Form.Control
+            as="textarea"
+            name="text"
+            cols="30"
+            rows="5"
+            placeholder="Let The Tenants Know who you are"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            className="mb-2"
+            required
+          />
+        )}
 
         <Button type="submit" variant="primary">
           Register

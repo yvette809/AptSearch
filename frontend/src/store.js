@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { userLoginReducer,userDetailsReducer,userRegisterReducer} from './reducers/auth'
+import {house} from './reducers/house'
 
 
 
@@ -9,7 +10,8 @@ import { userLoginReducer,userDetailsReducer,userRegisterReducer} from './reduce
 const reducer = combineReducers({
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
-    userDetails: userDetailsReducer
+    userDetails: userDetailsReducer,
+    house:house
    
 });
 

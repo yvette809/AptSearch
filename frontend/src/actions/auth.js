@@ -1,7 +1,5 @@
 
 import axios from "axios";
-
-
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
@@ -9,7 +7,6 @@ import {
     USER_DETAILS_FAIL,
     GET_USERS,
     GETUSERS_FAIL,
-
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     USER_LOGOUT,
@@ -63,13 +60,13 @@ export const getUsers = () => async (dispatch) => {
 };
 
 // Register User
-export const register = ({ name, email, password }) => async (dispatch) => {
+export const register = ({ name, email, password, bio }) => async (dispatch) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
         },
     };
-    const body = JSON.stringify({ name, email, password });
+    const body = JSON.stringify({ name, email, password, bio });
 
     try {
         const res = await axios.post(
@@ -98,8 +95,8 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     }
 };
 
-//Login user
 
+//Login user
 export const login = (email, password) => async (dispatch) => {
     const config = {
         headers: {
@@ -115,7 +112,10 @@ export const login = (email, password) => async (dispatch) => {
             config
         );
 
-
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        })
         localStorage.setItem("userInfo", JSON.stringify(res.data));
 
         dispatch(loadUser())
