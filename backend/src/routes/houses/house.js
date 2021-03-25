@@ -8,11 +8,12 @@ const { auth, admin } = require("../../middleware/authMiddleware");
 houseRouter.get("/", async (req, res, next) => {
     try {
         const houses = await houseModel.find(req.query).populate("user", ["name", "image"])
-        res.status(200).json({
-            success: true,
-            count: houses.length,
-            data: houses
-        })
+        // res.status(200).json({
+        //     success: true,
+        //     count: houses.length,
+        //     data: houses
+        // })
+        res.status(200).send(houses)
     } catch (error) {
         next(error)
 
@@ -75,22 +76,22 @@ houseRouter.delete("/:id", auth, async (req, res, next) => {
 })
 
 // edit house info
-houseRouter.put("/:id", auth, async(req,res,next)=>{
+houseRouter.put("/:id", auth, async (req, res, next) => {
     try {
         const house = await houseModel.findByIdAndUpdate(req.params.id, req.body)
         delete req.user._id
-        if(house){
+        if (house) {
             res.status(200).send(house)
-        }else{
+        } else {
             const error = new Error(`house with id ${req.params.id} not found`)
-            error.httpStatusCode= 404
+            error.httpStatusCode = 404
             next(error)
         }
-        
+
     } catch (error) {
         next(error)
     }
-   
+
 })
 
 

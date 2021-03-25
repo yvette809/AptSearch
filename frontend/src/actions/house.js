@@ -5,7 +5,7 @@ import { logout } from "./auth";
 
 // Get houses
 
-export const gethouses = () => async (dispatch, getState) => {
+export const getHouses = () => async (dispatch, getState) => {
     try {
         const {
             userLogin: { userInfo },
@@ -32,8 +32,7 @@ export const gethouses = () => async (dispatch, getState) => {
 };
 
 //get house by id
-
-export const gethouse = (id) => async (dispatch, getState) => {
+export const getHouse = (id) => async (dispatch, getState) => {
     try {
         const {
             userLogin: { userInfo },
