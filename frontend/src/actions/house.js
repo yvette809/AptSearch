@@ -5,18 +5,10 @@ import { logout } from "./auth";
 
 // Get houses
 
-export const getHouses = () => async (dispatch, getState) => {
+export const getHouses = () => async (dispatch) => {
     try {
-        const {
-            userLogin: { userInfo },
-        } = getState();
 
-        const config = {
-            headers: {
-                Authorization: `Bearer ${userInfo.token}`,
-            },
-        };
-        const res = await axios.get("http://localhost:5000/houses", config);
+        const res = await axios.get("http://localhost:5000/houses");
 
         dispatch({
             type: GET_HOUSES,
@@ -26,24 +18,17 @@ export const getHouses = () => async (dispatch, getState) => {
         console.log("ERROR", err);
         dispatch({
             type: HOUSE_ERROR,
-            // payload: { msg: err.response.statusText, status: err.response.status },
+
         });
     }
 };
 
 //get house by id
-export const getHouse = (id) => async (dispatch, getState) => {
+export const getHouse = (id) => async (dispatch) => {
     try {
-        const {
-            userLogin: { userInfo },
-        } = getState();
 
-        const config = {
-            headers: {
-                Authorization: `Bearer ${userInfo.token}`,
-            },
-        };
-        const res = await axios.get(`http://localhost:5000/houses/${id}`, config);
+        const res = await axios.get(`http://localhost:5000/houses/${id}`);
+        
 
         dispatch({
             type: GET_HOUSE,
@@ -53,7 +38,7 @@ export const getHouse = (id) => async (dispatch, getState) => {
         console.log("ERROR", err);
         dispatch({
             type: HOUSE_ERROR,
-            // payload: { msg: err.response.statusText, status: err.response.status },
+
         });
     }
 };

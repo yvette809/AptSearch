@@ -6,7 +6,7 @@ import HouseList from "./HouseList";
 import Hero from "../../components/Hero";
 import { Link } from "react-router-dom";
 
-const Houses = ({ getHouses, house: { houses, house, loading, error } }) => {
+const Houses = ({ getHouses, houseState: { houses, loading, error } }) => {
   useEffect(() => {
     getHouses();
   }, []);
@@ -44,6 +44,6 @@ const Houses = ({ getHouses, house: { houses, house, loading, error } }) => {
 };
 
 const mapStateToProps = (state) => ({
-  house: state.house,
+  houseState: state.houseState,
 });
 export default connect(mapStateToProps, { getHouses })(Houses);

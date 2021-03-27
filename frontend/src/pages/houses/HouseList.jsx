@@ -3,14 +3,15 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const HouseList = ({ house }) => {
+  const { photo, title, description, _id } = house;
   return (
     <>
       <Card>
-        <Card.Img variant="top" src={house.photo} />
+        <Card.Img variant="top" src={photo && photo} />
         <Card.Body>
-          <Card.Title>{house.title}</Card.Title>
-          <Card.Text>{house.description}</Card.Text>
-          <Link to={`/${house._id}`}>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{description}</Card.Text>
+          <Link to={`houses/${_id}`}>
             <Button variant="primary">Specifications</Button>
           </Link>
         </Card.Body>
@@ -18,6 +19,5 @@ const HouseList = ({ house }) => {
     </>
   );
 };
-
 
 export default HouseList;

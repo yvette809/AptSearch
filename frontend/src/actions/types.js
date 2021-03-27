@@ -11,12 +11,20 @@ export const GETUSERS_FAIL = "GETUSERS_FAIL";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
-export const  GET_HOUSE= " GET_HOUSE";
-export const  GET_HOUSES = " GET_HOUSES";
+export const GET_HOUSE = " GET_HOUSE";
+
+
+export const GET_HOUSES = " GET_HOUSES";
+
+
 export const UPDATE_HOUSE = "UPDATE_HOUSE";
+
+
 export const DELETE_HOUSE = "DELETE_HOUSE";
-export const  ADD_HOUSE = "ADD_HOUSE";
+
+export const ADD_HOUSE = "ADD_HOUSE";
 export const HOUSE_ERROR = "HOUSE_ERROR";
+
 
 export const CLEAR_PROFILE = "CLEAR_PROFILE";
 export const ACCOUNT_DELETED = "ACCOUNT_DELETED";

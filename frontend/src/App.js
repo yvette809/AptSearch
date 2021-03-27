@@ -9,6 +9,7 @@ import Houses from './pages/houses/Houses'
 import HouseDetails from './components/HouseDetails'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import AddHouse from './components/AddHouse'
 import NotFound from './pages/NotFound'
 
 
@@ -19,11 +20,12 @@ function App() {
       <Switch>
         <Route path="/" exact ><Home /></Route>
         <Route path="/about-us" ><AboutUs /></Route>
-        <Route path="/houses" ><Houses /></Route>
-        <Route path="/:_id" ><HouseDetails /></Route>
         <Route path="/register"><Register /></Route>
         <Route path="/login"><Login /></Route>
-        <Route path="*" exact ><NotFound /></Route>
+        <Route path="/houses/:_id"><HouseDetails /></Route>
+        <Route path="/houses"><Houses /></Route>
+        <Route path="/create-house"><AddHouse /></Route>
+        <Route path="*" ><NotFound /></Route>
       </Switch>
     </Router>
   );

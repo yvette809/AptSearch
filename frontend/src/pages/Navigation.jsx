@@ -94,7 +94,7 @@ const Navigation = () => {
                 About Us
               </Link>
               <Link to="/houses" className="nav-link  mr-3">
-                houses
+                Houses
               </Link>
 
               <NavDropdown
