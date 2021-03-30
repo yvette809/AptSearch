@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { addHouse } from "../actions/house";
 import Loader from "./Loader";
 
+
 const AddHouse = ({
   addHouse,
   userLogin: { userInfo },
@@ -33,10 +34,10 @@ const AddHouse = ({
         selfContained,
         telephone,
         location,
-        photo,
+       
       });
 
-      history.push("/houses");
+      // history.push("/houses");
     }
 
     const uploadFileHandler = async (e, id) => {
@@ -91,7 +92,7 @@ const AddHouse = ({
           type="text"
           placeholder="Price"
           name="price"
-          value={price}
+          value={price}frs
           onChange={(e) => setPrice(e.target.value)}
           className="mb-2"
         />
@@ -151,7 +152,7 @@ const AddHouse = ({
           label="Choose File"
           className="mb-3"
           custom
-          onChange={() => uploadFileHandler(house._id)}
+           //onChange={() => uploadFileHandler(house._id)}
         ></Form.File>
         {uploading && <Loader />}
 
