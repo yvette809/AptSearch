@@ -28,7 +28,6 @@ export const getHouse = (id) => async (dispatch) => {
     try {
 
         const res = await axios.get(`http://localhost:5000/houses/${id}`);
-        
 
         dispatch({
             type: GET_HOUSE,
@@ -42,6 +41,8 @@ export const getHouse = (id) => async (dispatch) => {
         });
     }
 };
+
+
 
 // // create post
 export const addHouse = (formData) => async (dispatch, getState) => {

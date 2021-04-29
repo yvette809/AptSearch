@@ -30,7 +30,7 @@ const Houses = ({ getHouses, houseState: { houses, loading, error } }) => {
         <div className="row ">
           {houses.length > 0 ? (
             houses.map((hors) => (
-              <div className="col-sm-2 col-md-6 col-lg-2 ">
+              <div className=" col-sm-12 col-md-4 col-lg-3 ">
                 <HouseList house={hors} id={hors._id} />
               </div>
             ))

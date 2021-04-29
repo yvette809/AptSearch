@@ -34,22 +34,6 @@ houseRouter.get("/", async (req, res, next) => {
   }
 });
 
-// post a house
-houseRouter.post("/", auth, async (req, res, next) => {
-  const house = await new houseModel({
-    title: req.body.title,
-    description: req.body.description,
-    price: req.body.price,
-    selfContained: req.body.selfContained,
-    image: req.body.image,
-    telephone: req.body.telephone,
-    location: req.body.location,
-    user: req.user.id,
-  });
-  const savedHouse = house.save();
-  res.status(201).send(savedHouse);
-});
-
 // get houses by id
 houseRouter.get("/:id", async (req, res, next) => {
   try {
@@ -67,6 +51,24 @@ houseRouter.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+// post a house
+houseRouter.post("/", auth, async (req, res, next) => {
+  const house = await new houseModel({
+    title: req.body.title,
+    description: req.body.description,
+    price: req.body.price,
+    selfContained: req.body.selfContained,
+    photo: req.body.photo,
+    telephone: req.body.telephone,
+    location: req.body.location,
+    user: req.user.id,
+  });
+  const savedHouse = house.save();
+  res.status(201).send(savedHouse);
+});
+
+
 
 // delete house
 houseRouter.delete("/:id", auth, async (req, res, next) => {
@@ -167,7 +169,7 @@ houseRouter.post(
                 await house.save();
                 res.status(200).send(house.image);
               } else {
-                const error = new Error(`userwith id ${req.user.id} not found`);
+                const error = new Error(`house id ${req.user.id} not found`);
                 error.httpStatusCode = 404;
                 next(error);
               }

@@ -10,6 +10,7 @@ import HouseDetails from './components/HouseDetails'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import AddHouse from './components/AddHouse'
+//import AHouse from './components/AHouse'
 import NotFound from './pages/NotFound'
 
 
